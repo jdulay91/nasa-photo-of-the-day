@@ -2,14 +2,14 @@ import React, { useState , useEffect } from "react";
 import "./App.css";
 import axios from 'axios';
 import MainPhoto from "./Components/MainPhoto";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer"
 
 const apiKey = 'mxyPfekt60mxRZvnHkacOaRwifTRSEtIbjeNIWkJ';
 const apodUrl = 'https://api.nasa.gov/planetary/apod?'
-const marsUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&camera=fhaz&'
 
 function App() {
-  const [photoOfTheDay,setPhotoOfTheDay] = useState('')
-  const [marsPhoto,setMarsPhoto] =useState([])
+  const [photoOfTheDay,setPhotoOfTheDay] = useState('') 
 
   useEffect(()=>{
     axios
@@ -24,11 +24,12 @@ function App() {
 
   return (
     <div className="App">
+      <Header/>
       <MainPhoto photo={photoOfTheDay}/>
       <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
+         <span role="img" aria-label='go!'>🚀</span>!
       </p>
+      <Footer/>
     </div>
   );
 }
